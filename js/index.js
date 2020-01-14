@@ -71,3 +71,15 @@ body.addEventListener("click", () => {
 });
 
 //preventDefault()
+
+let changingLink = document.querySelector("a");
+changingLink.href = "www.google.com";
+
+//console.log(changingLink);
+
+const preventingDefault = document.querySelector("a");
+
+preventingDefault.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("hello world!");
+});
