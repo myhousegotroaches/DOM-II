@@ -19,16 +19,18 @@ selectingText.addEventListener("dblclick", () => {
 });
 
 // 4.
-document.querySelectorAll("a").forEach((el) => {
-  el.addEventListener("mouseover", () => {
-    el.style.color = "white";
-  });
+const alive = document.querySelector(".intro p");
+alive.addEventListener("mouseover", () => {
+  alive.style.color = "white";
 });
 
 // 5.
 const removeImg = document.querySelector(".intro img");
-removeImg.addEventListener("click", () => {
+removeImg.addEventListener("click", (event) => {
   removeImg.style.visibility = "hidden";
+
+  //stopped propagation
+  event.stopPropagation();
 });
 
 // 6.
@@ -50,4 +52,22 @@ contentDestination.addEventListener("contextmenu", () => {
 });
 
 // 9.
+const test1 = document.querySelector(".destination h4");
+test1.addEventListener("mouseup", () => {
+  test1.style.color = "purple";
+});
+
 // 10.
+document.querySelectorAll(".destination p").forEach((item) => {
+  item.addEventListener("mouseout", () => {
+    item.style.color = "yellow";
+  });
+});
+
+//event propagation line 32
+const body = document.querySelector("body");
+body.addEventListener("click", () => {
+  body.style.backgroundColor = "red";
+});
+
+//preventDefault()
